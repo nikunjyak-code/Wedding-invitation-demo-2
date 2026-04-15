@@ -1,0 +1,278 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Playfair+Display&family=Dancing+Script&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+      margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     color: white;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background: black;
+  overflow: auto;
+}
+
+.section-2 {
+  min-height: 650px;
+  width: 290px;
+  background-image: url("h2.jpeg");
+  margin: 30px auto;
+  border-radius: 135px 135px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ganesha {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ganesha img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 2px solid gold;
+  position: relative;
+  z-index: 10;
+  display: block;
+}
+
+.ganesha h3 {
+  font-family: 'allura', cursive;
+  font-size: 20px;
+  padding: 15px;
+}
+
+.welcome {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome .fname, .sname {
+  font-family: 'dancing script', cursive;
+  font-size: 65px;
+}
+
+.fname {
+  text-align: left;
+  padding-left: 15px;
+}
+
+.sname {
+  text-align: right;
+  padding-right: 15px;
+}
+
+.welcome p {
+  text-align: center;
+  font-size: 15px;
+  font-family:'lora', serif;
+  padding: 15px;
+}
+
+.Btn {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  margin-top: auto;
+}
+
+.preBtn, .nextBtn {
+  padding: 10px 50px;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  border: 1.5px solid black;
+  background: #E8DCCB;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+/* Smooth page load */
+body {
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Card animation */
+.section-2 {
+  animation: slideUp 1s ease;
+  box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Ganesh image glow */
+.ganesha img {
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px gold;
+  }
+  to {
+    box-shadow: 0 0 25px gold;
+  }
+}
+
+/* Text entry animation */
+.ganesha h3,
+.fname,
+.sname,
+.welcome p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: textReveal 1s ease forwards;
+}
+
+.ganesha h3 { animation-delay: 0.3s; }
+.fname { animation-delay: 0.5s; }
+.sname { animation-delay: 0.7s; }
+.welcome p { animation-delay: 1s; }
+
+@keyframes textReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Premium button hover */
+.preBtn, .nextBtn {
+  transition: all 0.3s ease;
+  border-radius: 0px;
+}
+
+.preBtn:hover, .nextBtn:hover {
+  background: #D6C6B2;
+  color: black;
+  transform: scale(1.08);
+  box-shadow: 0 5px 20px rgba(255,215,0,0.5);
+}
+
+
+/* Background for big screens */
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  max-height: 768px;
+  margin-top: 0px;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -10;
+}
+
+/* Mobile container */
+.phone-container {
+  max-width: 420px;
+  top: 0px;
+  margin: 0 auto;
+  height: 100vh;
+  max-height: 768px;
+  /*background: linear-gradient(135deg, #8b0000, #ff3b3b);*/
+  background-color: #FAF0E6;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+  padding-top: 8px;
+}
+
+
+
+  </style>
+  
+</head>
+<body>
+   <!-- Background Layer -->
+  <div class="bg"></div>
+
+  <!-- Main Mobile Container -->
+  <div class="phone-container">
+  
+    <div class="section-2">
+      <div class="ganesha">
+        <img src="pic1.jpg" alt="Shree Ganesha">
+        <h3>Shree Ganeshay Namah</h3>
+      </div>
+    
+      <div class="welcome">
+        <h1 Class="fname">Sharma </h1><h1 Class="sname">Family</h1>
+        <p>Request the Pleasure of your Company On <br>The Auspicious Occasion of the Wedding ceremony</p><br><br>
+        <p>You All Are Invited.</p>
+      </div>
+    
+      <div class="Btn">
+        <a href="index1.html"><Button class="preBtn">Previous</Button></a>
+        <a href="index3.html"><Button class="nextBtn">Next</Button></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Ripple effect on buttons
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", function (e) {
+    let ripple = document.createElement("span");
+    ripple.style.position = "absolute";
+    ripple.style.width = ripple.style.height = "100px";
+    ripple.style.background = "rgba(255,255,255,0.5)";
+    ripple.style.borderRadius = "50%";
+    ripple.style.left = e.offsetX - 50 + "px";
+    ripple.style.top = e.offsetY - 50 + "px";
+    ripple.style.pointerEvents = "none";
+    ripple.style.animation = "ripple 0.6s linear";
+
+    this.appendChild(ripple);
+
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+// Ripple animation CSS via JS
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}`;
+document.head.appendChild(style);
+
+  </script>
+</body>
+</html>

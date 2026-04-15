@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: white;
+    }
+
+    body {
+      background: black;
+      animation: fadeIn 1s ease;
+    }
+
+    .section-4 {
+      min-height: 650px;
+      width: 290px;
+      background-image: url("h2.jpeg");
+      margin: 30px auto;
+      border-radius: 135px 135px 0 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(255,215,0,0.2);
+    }
+
+    .heading {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    .timeline {
+      position: relative;
+      flex: 1;
+      padding: 10px 0;
+    }
+
+    /* PERFECT LINE */
+    .line {
+      position: absolute;
+      left: 50%;
+      top: 35px;
+      bottom: 35px;
+      width: 2px;
+      background: black;
+      transform: translateX(-50%);
+    }
+
+    .event {
+      width: 50%;
+      padding: 20px 10px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .event:nth-child(1) { animation-delay: 0.2s; }
+    .event:nth-child(2) { animation-delay: 0.4s; }
+    .event:nth-child(3) { animation-delay: 0.6s; }
+    .event:nth-child(4) { animation-delay: 0.8s; }
+    .event:nth-child(5) { animation-delay: 1s; }
+
+    .event.left {
+      left: 0;
+      text-align: right;
+    }
+
+    .event.right {
+      left: 50%;
+      text-align: left;
+    }
+
+    /* DOT */
+    .event::after {
+      content: "";
+      position: absolute;
+      top: 22px;
+      width: 10px;
+      height: 10px;
+      background: gold;
+      border-radius: 50%;
+    }
+
+    .event.left::after {
+      right: -5px;
+    }
+
+    .event.right::after {
+      left: -5px;
+    }
+
+    /* ICON */
+    .icon {
+      width: 30px;
+      height: 40px;
+      position: absolute;
+      top: 18px;
+    }
+
+    .event.left .icon {
+      right: -40px;
+    }
+
+    .event.right .icon {
+      left: -40px;
+    }
+
+    .time {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+    }
+
+    .title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+    }
+
+    .desc {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      opacity: 0.8;
+    }
+
+    .Btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
+    .preBtn, .nextBtn {
+      padding: 10px 50px;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+      border: 1.5px solid black;
+      background: #E8DCCB;
+      color: black;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+  
+    }
+
+    .preBtn:hover, .nextBtn:hover {
+      background: #D6C6B2;
+      color: black;
+      transform: scale(1.08);
+      box-shadow: 0 5px 20px rgba(255,215,0,0.5);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Background for big screens */
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  max-height: 768px;
+  margin-top: 0px;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -10;
+}
+
+/* Mobile container */
+.phone-container {
+  max-width: 420px;
+  top: 0px;
+  margin: 0 auto;
+  height: 100vh;
+  max-height: 768px;
+  /*background: linear-gradient(135deg, #8b0000, #ff3b3b);*/
+  padding-top: 8px;
+  background-color: #FAF0E6;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+    
+  </style>
+</head>
+
+<body>
+
+<!-- Background Layer -->
+  <div class="bg"></div>
+
+<!-- Main Mobile Container -->
+<div class="phone-container">
+
+  <div class="section-4">
+
+    <div class="heading">Event Schedule</div>
+
+    <div class="timeline">
+      <div class="line"></div>
+
+      <div class="event left">
+        <div class="time">Mon, jan 13</div>
+        <div class="title">Haldi</div>
+        <div class="desc">Hotel Pride</div>
+        <img src="icon1.png" class="icon">
+      </div>
+
+      <div class="event right">
+        <div class="time">Wed, jan 15</div>
+        <div class="title">Mehendi</div>
+        <div class="desc">Hotel Pride</div>
+        <img src="icon2.png" class="icon">
+      </div>
+
+      <div class="event left">
+        <div class="time">Fri, jan 17</div>
+        <div class="title">Sangeet</div>
+        <div class="desc">Hotel Pride</div>
+        <img src="icon3.png" class="icon">
+      </div>
+
+      <div class="event right">
+        <div class="time">Sun, jan 19</div>
+        <div class="title">Marriage Ceremony</div>
+        <div class="desc">Sargam Marriage Hall</div>
+        <img src="icon4.png" class="icon">
+      </div>
+
+      <div class="event left">
+        <div class="time">Tue, jan 21</div>
+        <div class="title">Party</div>
+        <div class="desc">People's Mall</div>
+        <img src="icon5.png" class="icon">
+      </div>
+
+    </div>
+
+    <div class="Btn">
+      <a href="index3.html"><button class="preBtn">Previous</button></a>
+      <a href="index5.html"><button class="nextBtn">Next</button></a>
+    </div>
+  </div>
+</div>
+
+<script>
+// Ripple effect
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", function (e) {
+    let ripple = document.createElement("span");
+    ripple.style.position = "absolute";
+    ripple.style.width = ripple.style.height = "100px";
+    ripple.style.background = "rgba(255,255,255,0.5)";
+    ripple.style.borderRadius = "50%";
+    ripple.style.left = e.offsetX - 50 + "px";
+    ripple.style.top = e.offsetY - 50 + "px";
+    ripple.style.animation = "ripple 0.6s linear";
+
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes ripple {
+  from {transform: scale(0); opacity:1;}
+  to {transform: scale(3); opacity:0;}
+}`;
+document.head.appendChild(style);
+
+</script>
+
+</body>
+</html>

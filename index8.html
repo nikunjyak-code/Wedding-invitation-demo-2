@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Playfair+Display&family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: white;
+    }
+
+    body {
+      background: black;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .section-7 {
+      min-height: 650px;
+      width: 290px;
+      background-image: url("h2.jpeg");
+      margin: 30px auto;
+      border-radius: 135px 135px 0 0;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0 0;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(255,215,0,0.2);
+      animation: slideUp 1s ease;
+    }
+
+    .heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      margin-bottom: 10px;
+      margin-top: 20px;
+    }
+
+    .message {
+      font-family: 'Dancing Script', cursive;
+      font-size: 22px;
+      margin: 55px 15px 0 0;
+      line-height: 1.4;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: textReveal 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .quote {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      margin: 10px 0;
+      opacity: 0.8;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: textReveal 1s ease forwards;
+    }
+
+    .quote:nth-child(3) { animation-delay: 0.6s; }
+    .quote:nth-child(4) { animation-delay: 0.9s; }
+    .quote:nth-child(5) { animation-delay: 1.2s; }
+
+    .divider {
+      width: 60%;
+      height: 1px;
+      background: rgba(0,0,0,0.4);
+      margin: 15px auto;
+    }
+    
+    .last-img {
+      
+    }
+
+    /* Buttons */
+    .Btn {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .preBtn {
+      flex: 1;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+      padding: 10px 50px;
+      border: 1.5px solid black;
+      background: #E8DCCB;
+      color: black;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .preBtn:hover {
+      background: #D6C6B2;
+      color: black;
+      transform: scale(1.08);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(80px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes textReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Background for big screens */
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  max-height: 768px;
+  margin-top: 0px;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -10;
+}
+
+/* Mobile container */
+.phone-container {
+  max-width: 420px;
+  top: 0px;
+  margin: 0 auto;
+  height: 100vh;
+  max-height: 768px;
+  /*background: linear-gradient(135deg, #8b0000, #ff3b3b);*/
+  padding-top: 8px;
+  background-color: #FAF0E6;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+  </style>
+</head>
+
+<body>
+
+<!-- Background Layer -->
+  <div class="bg"></div>
+
+<!-- Main Mobile Container -->
+<div class="phone-container">
+
+  <div class="section-7">
+
+    <div class="heading">Thank You</div>
+
+    <div class="message">
+    The Sharma Family awaits to warmly welcome you<br>
+    and celebrate this beautiful occasion together.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="quote">“Where there is love, there is life.”</div>
+    <div class="quote">“Two hearts, one journey, forever begins.”</div>
+    <div class="quote">“Your presence will make our celebration complete.”</div>
+  
+    <img class="last-img" src="pic4.jpg">
+
+    <div class="Btn">
+      <a href="index7.html"><button class="preBtn">Previous</button></a>
+    </div>
+  </div>
+</div>
+
+<script>
+// Ripple effect
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", function (e) {
+    let ripple = document.createElement("span");
+    ripple.style.position = "absolute";
+    ripple.style.width = ripple.style.height = "100px";
+    ripple.style.background = "rgba(255,255,255,0.5)";
+    ripple.style.borderRadius = "50%";
+    ripple.style.left = e.offsetX - 50 + "px";
+    ripple.style.top = e.offsetY - 50 + "px";
+    ripple.style.animation = "ripple 0.6s linear";
+
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes ripple {
+  from {transform: scale(0); opacity:1;}
+  to {transform: scale(3); opacity:0;}
+}`;
+document.head.appendChild(style);
+
+</script>
+
+</body>
+</html>

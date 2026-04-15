@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: white;
+    }
+
+    body {
+      background: black;
+      animation: fadeIn 1s ease;
+    }
+
+    .section {
+      min-height: 650px;
+      width: 290px;
+      background-image: url("h2.jpeg");
+      margin: 30px auto;
+      margin-top: 30px;
+      border-radius: 135px 135px 0 0;
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      box-shadow: 0 20px 50px rgba(255,215,0,0.2);
+    }
+    
+    .section h3 {
+      font-family: 'allura', cursive;
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .form-container {
+      margin-top: 30px;
+    }
+
+    .heading {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      margin-bottom: 10px;
+      margin-top: 30px;
+    }
+
+    .form-group {
+      margin: 15px 0 8px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 11px;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 3px;
+    }
+
+    input, textarea {
+      padding: 8px;
+      border: none;
+      border-radius: 6px;
+      font-size: 11px;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 10px;
+      font-size: 11px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .submitBtn {
+      margin-top: 10px;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+      padding: 10px 20px;
+      margin-left: 25px;
+      background: #E8DCCB;
+      color: black;
+      border: 1.5px solid black;
+      border-radius: 70px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: 0.3s;
+    }
+
+    .submitBtn:hover {
+      background: #D6C6B2;
+      color: black;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    
+    /* Background for big screens */
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  max-height: 768px;
+  margin-top: 0px;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -10;
+}
+
+/* Mobile container */
+.phone-container {
+  max-width: 420px;
+  top: 0px;
+  margin: 0 auto;
+  height: 100vh;
+  max-height: 768px;
+  /*background: linear-gradient(135deg, #8b0000, #ff3b3b);*/
+  background-color: #FAF0E6;
+  padding-top: 8px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+    
+  </style>
+</head>
+
+<body>
+  
+<!-- Background Layer -->
+<div class="bg"></div>
+
+<!-- Main Mobile Container -->
+<div class="phone-container">
+
+  <div class="section">
+
+    <div class="heading">RSVP Form</div>
+    <h3>Provide the details given below for the best possible experience.</h3>
+    <div class="form-container">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Your Name Here">
+      </div>
+
+      <div class="form-group">
+        <label>Relation</label>
+        <input type="text" id="relation" placeholder="eg. Friend, Cousin, relative">
+      </div>
+
+      <div class="form-group">
+        <label>Side</label>
+        <div class="radio-group">
+          <label><input type="radio" name="side" value="Groom"> Groom</label>
+          <label><input type="radio" name="side" value="Bride"> Bride</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>No. of Guests</label>
+        <input type="number" id="guests" placeholder="eg. 3">
+      </div>
+
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="3" id="message" placeholder="Send your wishes and blessings here... "></textarea>
+      </div>
+
+      <button class="submitBtn" onclick="sendWhatsApp()">Confirm Your Attendance</button>
+    </div>
+  </div>
+</div>
+
+<script id="rsvpfull01">
+
+// Main function
+function sendWhatsApp() {
+  let name = document.getElementById("name").value.trim();
+  let relation = document.getElementById("relation").value.trim();
+  let guests = document.getElementById("guests").value.trim();
+  let message = document.getElementById("message").value.trim();
+
+  let sideEl = document.querySelector('input[name="side"]:checked');
+  let side = sideEl ? sideEl.value : "";
+
+  if (!name || !relation || !guests || !side) {
+    alert("Please fill all required details!");
+    return;
+  }
+
+  let text = 
+`RSVP Response:
+Name: ${name}
+Relation: ${relation}
+Side: ${side}
+Guests: ${guests}
+Message: ${message}`;
+
+  const phone = "919244802014";
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+
+  window.open(url, "_blank");
+
+  setTimeout(() => {
+    window.location.href = "index7.html";
+  }, 1500);
+}
+
+
+// 🔥 Ripple effect for all buttons
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", function (e) {
+    let ripple = document.createElement("span");
+
+    ripple.style.position = "absolute";
+    ripple.style.width = ripple.style.height = "100px";
+    ripple.style.background = "rgba(255,255,255,0.5)";
+    ripple.style.borderRadius = "50%";
+    ripple.style.left = e.offsetX - 50 + "px";
+    ripple.style.top = e.offsetY - 50 + "px";
+    ripple.style.pointerEvents = "none";
+    ripple.style.animation = "ripple 0.6s linear";
+
+    this.appendChild(ripple);
+
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+// Ripple animation CSS
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}`;
+document.head.appendChild(style);
+
+</script>
+
+</body>
+</html>

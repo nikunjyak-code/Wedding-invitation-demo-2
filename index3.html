@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Dancing+Script&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: white;
+    }
+
+    body {
+      background: black;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .section-3 {
+      min-height: 650px;
+      width: 290px;
+      background-image: url("h2.jpeg");
+      margin: 30px auto;
+      border-radius: 135px 135px 0 0;
+      display: flex;
+      flex-direction: column;
+      animation: slideUp 1s ease;
+      box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
+    }
+
+    /* Profile Section */
+    .profile {
+      text-align: center;
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: textReveal 1s ease forwards;
+    }
+    
+    .profile h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 22px;
+      margin: 8px auto;
+    }
+
+    .profile:nth-child(1) { animation-delay: 0.3s; }
+    .profile:nth-child(2) { animation-delay: 0.6s; }
+
+    .profile img {
+      height: 140px;
+      width: 140px;
+      border-radius: 50%;
+      border: 2px solid gold;
+      animation: glow 2s infinite alternate;
+    }
+
+    .name {
+      font-family: 'Dancing Script', cursive;
+      font-size: 32px;
+      margin-top: 10px;
+    }
+
+    .role {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    /* Divider */
+    .divider {
+      width: 60%;
+      height: 1px;
+      background: rgba(0,0,0,0.4);
+      margin: 10px auto;
+    }
+
+    /* Buttons */
+    .Btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
+    .preBtn, .nextBtn {
+      padding: 10px 50px;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+      border: 1.5px solid black;
+      background: #E8DCCB;
+      color: black;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+  
+    }
+
+    .preBtn:hover, .nextBtn:hover {
+      background: #D6C6B2;
+      color: black;
+      transform: scale(1.08);
+      box-shadow: 0 5px 20px rgba(255,215,0,0.5);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(80px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px gold; }
+      to { box-shadow: 0 0 25px gold; }
+    }
+
+    @keyframes textReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Background for big screens */
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  max-height: 768px;
+  margin-top: 0px;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -10;
+}
+
+/* Mobile container */
+.phone-container {
+  max-width: 420px;
+  top: 0px;
+  margin: 0 auto;
+  height: 100vh;
+  max-height: 768px;
+  /*background: linear-gradient(135deg, #8b0000, #ff3b3b);*/
+  padding-top: 8px;
+  background-color: #FAF0E6;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+  
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Layer -->
+  <div class="bg"></div>
+
+  <!-- Main Mobile Container -->
+  <div class="phone-container">
+
+    <div class="section-3">
+
+      <!-- Groom -->
+      <div class="profile">
+        <h1>GROOM</h1>
+        <img src="pic2.jpg">
+        <h2 class="name">Rahul Sharma</h2>
+        <p class="role">Software Engineer</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Bride -->
+      <div class="profile">
+        <h1>BRIDE</h1>
+        <img src="pic3.jpg">
+        <h2 class="name">Priya Verma</h2>
+        <p class="role">Doctor</p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="Btn">
+        <a href="index2.html"><button class="preBtn">Previous</button></a>
+        <a href="index4.html"><button class="nextBtn">Next</button></a>
+      </div>
+
+    </div>
+  </div>
+  
+  <script id="3xk92a">
+// Ripple effect on buttons
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", function (e) {
+    let ripple = document.createElement("span");
+    ripple.style.position = "absolute";
+    ripple.style.width = ripple.style.height = "100px";
+    ripple.style.background = "rgba(255,255,255,0.5)";
+    ripple.style.borderRadius = "50%";
+    ripple.style.left = e.offsetX - 50 + "px";
+    ripple.style.top = e.offsetY - 50 + "px";
+    ripple.style.pointerEvents = "none";
+    ripple.style.animation = "ripple 0.6s linear";
+
+    this.appendChild(ripple);
+
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+// Ripple animation CSS via JS
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
+}`;
+document.head.appendChild(style);
+
+  </script>
+</body>
+</html>
